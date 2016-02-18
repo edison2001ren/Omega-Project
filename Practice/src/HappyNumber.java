@@ -14,7 +14,6 @@ public class HappyNumber {
 
         int numSum = 0;
         int originNum = n;
-        int[] numArray = new ArrayList[];
 
         while (n/10>0) {
             numSum += (n%10)*(n%10);
