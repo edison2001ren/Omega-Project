@@ -1,6 +1,6 @@
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
-import java.util.ArrayList;
 
 /**
  * Created by sunl on 2/17/16.
@@ -13,7 +13,11 @@ public class HappyNumber {
     public boolean isHappy(int n) {
 
         int numSum = 0;
-        int originNum = n;
+        List sumArray = new ArrayList();
+
+        if(numSum==1) {
+            return true;
+        }
 
         while (n/10>0) {
             numSum += (n%10)*(n%10);
@@ -21,14 +25,9 @@ public class HappyNumber {
         }
         numSum += n*n;
 
-        if(numSum==1) {
-            return true;
-        }
-        else if(numSum == originNum) {
-            return false;
-        }
-        else
-            return isHappy(numSum);
+        sumArray.add(numSum);
+
+        return isHappy(numSum);
     }
 
     public static void main(String[] args) {
