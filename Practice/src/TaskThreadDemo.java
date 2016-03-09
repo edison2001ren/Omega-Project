@@ -19,6 +19,7 @@ public class TaskThreadDemo {
         thread1.start();
         thread2.start();
         thread3.start();
+        thread3.setPriority(Thread.MAX_PRIORITY);
     }
 }
 
@@ -27,15 +28,14 @@ class PrintChar implements Runnable {
     private int times;
 
     public PrintChar(char c, int t) {
-        this.charToPrint = c;
-        this.times = t;
+        charToPrint = c;
+        times = t;
     }
 
     public void run() {
-        for(int i = 0; i < this.times; ++i) {
-            System.out.print(this.charToPrint);
+        for (int i = 0; i < times; ++i) {
+            System.out.print(charToPrint);
         }
-
     }
 }
 
@@ -43,13 +43,20 @@ class PrintNum implements Runnable {
     private int lastNum;
 
     public PrintNum(int n) {
-        this.lastNum = n;
+        lastNum = n;
     }
 
     public void run() {
-        for(int i = 1; i <= this.lastNum; ++i) {
-            System.out.print(" " + i);
+        Thread thread4 = new Thread(new PrintChar('c', 100));
+        thread4.start();
+        try {
+            for (int i = 0; i <= lastNum; ++i) {
+                System.out.print(" " + i);
+                if (i == 20) {
+                    thread4.join();
+                }
+            }
+        } catch (InterruptedException ex) {
         }
-
     }
 }
