@@ -22,6 +22,6 @@ public class SquareX {
     }
 
     public static void main(String[] args) {
-        System.out.println(SquareX.sqrt(1));
+        System.out.println(SquareX.sqrt(122));
     }
 }
