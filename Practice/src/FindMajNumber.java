@@ -17,11 +17,29 @@ public class FindMajNumber {
         return major;
     }
 
+    public static boolean verifyMajNumber(int[] array, int maj){
+        int counter = 0;
+        for(int i=0; i<array.length; i++) {
+            if(array[i] == maj) {
+                counter++;
+            }
+        }
+        if(counter > (array.length) / 2) {
+            return true;
+        }
+        else
+            return false;
+    }
+
     public static void main(String[] args) {
-
-        int[] numList = {111,222,111,111,222,343,90,90,111,111,111,0,111};
-
-        System.out.print(FindMajNumber.majorityNumber(numList));
+        int[] numList = {2, 2, 2, 1, 1, 1};
+        int majorNumber = majorityNumber(numList);
+        if(verifyMajNumber(numList, majorNumber)) {
+            System.out.println("The majority number is: " + majorNumber);
+        }
+        else {
+            System.out.println("This array does not have a majority number!");
+        }
     }
 
 }
