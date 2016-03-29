@@ -6,7 +6,7 @@ public class BalancedParentheses {
     public static boolean validateParentheses(char[] parentheses) {
 
         if(parentheses == null || parentheses.length == 0) {
-            return true;
+            return false;
         }
         int counter = 1;
         char firstElement = parentheses[0];
@@ -32,11 +32,11 @@ public class BalancedParentheses {
     }
 
     public static void main(String[] args) {
-        char[] input = {'(','(','(','(',')','(',')',')',')',')'};
+        char[] input = {'(', ')', '('};
         if(validateParentheses(input)) {
             System.out.println("It is balanced!");
         }
         else
-            System.out.println("It is not balanced!");
+            System.out.println("It is NOT balanced!");
     }
 }
