@@ -5,6 +5,8 @@ public class HashMapDemo {
     public static void main(String args[]) {
 
         // Create a hash map
+        // Use LinkedHashMap: When you want to preserve the insertion order.
+        // Use TreeMap: When you want to sort the key-value pairs.
         HashMap hm = new HashMap();
         // Put elements to the map
         hm.put("Zara", new Double(3434.34));
