@@ -25,7 +25,7 @@ public class BalancedParentheses3 {
     }
 
     public static void main(String[] args) {
-        String parentheses = "()()[()])";
+        String parentheses = "()0)[()])";
         BalancedParentheses3 bp = new BalancedParentheses3();
         if(bp.isValid(parentheses)) {
             System.out.println("It is balanced!");
