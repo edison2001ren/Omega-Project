@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 /**
  * Created by sunl on 2/17/16.
- * Modified on 4/11/16.
+ * Modified on 4/12/16.
  * Solution passed!!!
  */
 public class HappyNumber {
@@ -41,9 +41,7 @@ public class HappyNumber {
 
         System.out.println("Please enter a integer number: ");
         Scanner scanner = new Scanner(System.in);
-
         int number = scanner.nextInt();
-
         HappyNumber object = new HappyNumber();
 
         System.out.println("Your input is: " + number);
