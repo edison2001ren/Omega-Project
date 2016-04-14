@@ -1,9 +1,10 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Hashtable;
 import java.util.Scanner;
 
 /**
  * Created by sunl on 2/17/16.
+ * Modified on 4/12/16.
+ * Solution passed!!!
  */
 public class HappyNumber {
     /**
@@ -12,31 +13,35 @@ public class HappyNumber {
      */
     public boolean isHappy(int n) {
 
-        int numSum = 0;
-        List sumArray = new ArrayList();
+        int i = 0;
+        int newSum;
+        Hashtable<Integer, Integer> ht = new Hashtable<Integer, Integer>();
+        newSum = calcSquare(n);
+        while (!ht.containsKey(newSum))
+            if (newSum == 1) {
+                return true;
+            } else {
+                ht.put(newSum, i);
+                i++;
+                newSum = calcSquare(newSum);
+            }
+        return false;
+    }
 
-        if(numSum==1) {
-            return true;
+    public int calcSquare(int number) {
+        int sum = 0;
+        while(number!=0) {
+            sum += Math.pow(number%10, 2);
+            number=number/10;
         }
-
-        while (n/10>0) {
-            numSum += (n%10)*(n%10);
-            n = n/10;
-        }
-        numSum += n*n;
-
-        sumArray.add(numSum);
-
-        return isHappy(numSum);
+        return sum;
     }
 
     public static void main(String[] args) {
 
         System.out.println("Please enter a integer number: ");
         Scanner scanner = new Scanner(System.in);
-
         int number = scanner.nextInt();
-
         HappyNumber object = new HappyNumber();
 
         System.out.println("Your input is: " + number);

@@ -17,11 +17,13 @@ public class HashTableDemo {
         ht.put("Key3", "Edi");
         ht.put("Key4", "Ethan");
         ht.put("Key5", "Alexa");
+        ht.put("Key2", "Amy");
+
 
         names = ht.keys();
-        while(names.hasMoreElements()){
-            key = (String)names.nextElement();
-            System.out.println(key + " : "+ ht.get(key));
+        while(names.hasMoreElements()) {
+            key = (String) names.nextElement();
+            System.out.println(key + " : " + ht.get(key));
         }
     }
 }
