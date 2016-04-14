@@ -8,7 +8,7 @@
 
 public class Anagrams {
 
-    public boolean anagram(String s, String t) {
+    public boolean anagrams(String s, String t) {
 
         if(s.length() != t.length())
             return false;
@@ -33,7 +33,7 @@ public class Anagrams {
         String bString = "n ahwryeypp ea";
 
         Anagrams ana = new Anagrams();
-        if(ana.anagram(aString, bString)) {
+        if(ana.anagrams(aString, bString)) {
             System.out.println(aString + ", " + bString + " are Anagrams!");
         }
         else
