@@ -2,19 +2,21 @@ import java.util.Scanner;
 
 /**
  * Created by sunl on 2/20/16.
+ * This code handles the overflow cases and passed the testing on 4/14/2016
  */
 public class ReverseNumber3 {
 
     public static int reverseInteger(int n) {
-        String number = "";
-
-        while (n % 10 != 0) {
-            number = number + n % 10;
+        long sum = 0;
+        while(n!=0) {
+            sum = 10 * sum + n % 10;
             n = n / 10;
         }
 
-        return Integer.parseInt(number);
-        // Write your code here
+        if(sum > Integer.MAX_VALUE || sum < Integer.MIN_VALUE)
+            return 0;
+        else
+            return (int) sum;
     }
 
     public static void main(String[] args) {
