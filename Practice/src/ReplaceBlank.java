@@ -4,24 +4,28 @@
 public class ReplaceBlank {
 
     public int replaceBlank(char[] string, int length) {
-        String finalString = "";
-        String subString;
-        String endString;
-        String space = "%20";
-        int startingIndex = 0;
-        for(int i=0; i<length; i++) {
-            if(string[i]==' ') {
-                subString = new String(string, startingIndex, i-startingIndex);
-                finalString = finalString + subString + space;
-                startingIndex = i+1;
-            }
-            else if(i==length-1){
-                endString = new String(string, startingIndex, i-startingIndex+1);
-                finalString += endString;
+        if (string == null || length == 0) {
+            return 0;
+        }
+        int result = length;
+        for (int i = 0; i < length; i++) {
+            if (string[i] == ' ') {
+                result += 2;
             }
         }
-        System.out.println(finalString);
-        return finalString.length();
+        int index = result - 1;
+        for (int i = length - 1; i >= 0; i--) {
+            if (string[i] == ' ') {
+                string[index] = '0';
+                string[index - 1] = '2';
+                string[index - 2] = '%';
+                index -= 3;
+            } else {
+                string[index] = string[i];
+                index--;
+            }
+        }
+        return result;
         // Write your code here
     }
 
