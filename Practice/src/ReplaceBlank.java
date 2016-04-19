@@ -31,9 +31,9 @@ public class ReplaceBlank {
 
     public static void main(String[] args) {
         ReplaceBlank rb = new ReplaceBlank();
-        String string = "hello world";
+        String string = "Mr John Smith    ";
         char[] stringArray = string.toCharArray();
-        int trueLength = stringArray.length;
+        int trueLength = stringArray.length - 4;
         System.out.println(string);
         System.out.println(rb.replaceBlank(stringArray, trueLength));
     }
