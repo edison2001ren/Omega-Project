@@ -8,10 +8,10 @@ public class ThreeSumSorted {
         if(array.length < 3) {
             return false;
         }
-
-        int midIndex = 0;
-        int endIndex = array.length - 1;
+        int midIndex,endIndex;
         for(int i=0; i<array.length-2; i++) {
+            midIndex = i + 1;
+            endIndex = array.length - 1;
             while (midIndex < endIndex) {
                 if (array[i] + array[midIndex] + array[endIndex] == target) {
                     System.out.println(array[i] + ", " + array[midIndex] + ", " + array[endIndex]);
@@ -25,8 +25,8 @@ public class ThreeSumSorted {
     }
 
     public static void main(String[] args) {
-        int[] inputArray = {1, 2, 5, 7, 7, 10, 15, 18};
-        int targetNum = 29;
+        int[] inputArray = {1, 2, 5, 7, 9, 12, 17, 19};
+        int targetNum = 39;
         ThreeSumSorted obj = new ThreeSumSorted();
         if(obj.calcThreeSumSorted(inputArray, targetNum)) {
             System.out.println("Found three numbers!!");
