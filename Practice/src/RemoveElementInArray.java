@@ -3,39 +3,21 @@
  */
 public class RemoveElementInArray {
 
-    public static int removeElement(int[] numArray, int element) {
+    public static int removeElement(int[] A, int elem) {
 
-        int finalLength = numArray.length;
+        int i=0;
+        int j=0;
 
-        for(int i=0; i<numArray.length; i++) {
-            if(numArray[i] == element) {
-                int k=i;
-                int j=k+1;
-                while (j<numArray.length) {
-                    if (numArray[j] != 4) {
-                        numArray[k] = numArray[j];
-                        k++;
-                        j++;
-                    }
-                    else {
-                        numArray[k] = numArray[j];
-                        k++;
-                        j++;
-                    }
-                }
-                RemoveElementInArray.printArray(numArray);
-                System.out.println();
-                finalLength -= 1;
+        while(j < A.length){
+            if(A[j] != elem){
+                A[i] = A[j];
+                i++;
             }
-        }
-        return finalLength;
-    }
 
-    public static void printArray(int[] numArray) {
-        for (int a: numArray
-             ) {
-            System.out.print(a + " ");
+            j++;
         }
+
+        return i;
     }
 
     public static void main(String[] args) {
