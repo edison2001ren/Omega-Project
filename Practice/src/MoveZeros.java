@@ -37,7 +37,7 @@ public class MoveZeros {
         }
         MoveZeros obj = new MoveZeros();
         obj.moveZeroes(inputArray);
-        System.out.println("\n\nAfter moving all zeros:\n");
+        System.out.println("\nAfter moving all zeros:");
         for (int c : inputArray) {
             System.out.print(c + " ");
         }
