@@ -15,7 +15,7 @@ public class BubbleSort {
         for(int out=lastElement; out>1; out--) {
             for(int in=0; in<out; in++) {
                 if(unsorted[in] > unsorted[in+1]) {
-                    swapElement(in, in + 1, unsorted);
+                    swapElement(in, in+1, unsorted);
                 }
             }
         }
