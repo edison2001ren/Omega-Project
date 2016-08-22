@@ -13,24 +13,17 @@ public class FindTwoMinimum {
             return input;
         }
         int[] resultArr = new int[2];
-        int firstMin = input[0];
-        int secondMin = input[1];
-        int i = 2;
+        int firstMin = Integer.MAX_VALUE;
+        int secondMin = Integer.MAX_VALUE;
+        int i = 0;
         while(i < input.length) {
             if(input[i] < firstMin && input[i] < secondMin) {
-                int temp = firstMin;
+                secondMin = firstMin;
                 firstMin = input[i];
-                if(temp < secondMin) {
-                    secondMin = temp;
-                }
                 i++;
             }
             else if(input[i] > firstMin && input[i] <= secondMin) {
                 secondMin = input[i];
-                i++;
-            }
-            else if(input[i] > secondMin && input[i] <= firstMin) {
-                firstMin = input[i];
                 i++;
             }
             else
@@ -43,7 +36,7 @@ public class FindTwoMinimum {
     }
 
     public static void main(String[] args) {
-        int[] inputArray = {0, 0, 2321, 231, 1, -2, 4, 2, 3, 4};
+        int[] inputArray = {2, 1, 1, 10, 34, 1};
         FindTwoMinimum obj = new FindTwoMinimum();
         System.out.println("Here are the two minimum numbers: ");
         for(int e: obj.findTwoMin(inputArray)) {
