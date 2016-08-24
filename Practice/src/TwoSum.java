@@ -5,28 +5,27 @@ import java.util.HashMap;
  */
 public class TwoSum {
 
-    private static boolean calcTwoSum(int[] numbers, int target) {
+    public int[] twoSum(int[] numbers, int target) {
 
-        HashMap<Integer, Integer> hm = new HashMap<Integer, Integer>();
-        for(int i=0; i<numbers.length; i++) {
-            int anotherNum = target - numbers[i];
-            hm.put(numbers[i], anotherNum);
-            if(hm.containsKey(anotherNum)) {
-                System.out.println(numbers[i] + " : " + anotherNum);
-                return true;
+        HashMap<Integer,Integer> hash = new HashMap<Integer,Integer>();
+        for(int i = 0; i < numbers.length; i++){
+            int diff = (target - numbers[i]);
+            if(hash.containsKey(diff)){
+                int toReturn[] = {hash.get(diff)+1, i+1};
+                return toReturn;
             }
+            hash.put(numbers[i], i);
         }
-        return false;
+        return null;
     }
 
     public static void main(String[] args) {
-        int[] inputArray = {8, 1 , 12, 1, 5, 1, 2, 10};
+        int[] inputArray = {8, 1, 12, 1, 5, 1, 2, 10};
         int targetNum = 14;
         TwoSum obj = new TwoSum();
-        if(obj.calcTwoSum(inputArray, targetNum)) {
-            System.out.println("Found two numbers!!");
+        System.out.println("These 2 numbers' index are: ");
+        for (int a : obj.twoSum(inputArray, targetNum)) {
+            System.out.print(a + " ");
         }
-        else
-            System.out.println("Not found two numbers!!");
     }
 }
