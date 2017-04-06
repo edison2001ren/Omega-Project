@@ -5,9 +5,20 @@ import java.util.Scanner;
  */
 public class ReverseString {
 
-    public static void writeReverseStringRecur(String newString) {
+    public String writeReverseStringRecursive(String s) {
 
 
+        return null;
+    }
+
+    public String writeReverseStringLoop(String s) {
+
+        char[] charStr = s.toCharArray();
+        StringBuilder resultStr = new StringBuilder();
+        for(int index = charStr.length-1; index >= 0; index--) {
+            resultStr.append(charStr[index]);
+        }
+        return resultStr.toString();
     }
 
     public static void main(String[] args) {
@@ -17,12 +28,13 @@ public class ReverseString {
 
         String myString = scanner.next();
 
+        ReverseString obj = new ReverseString();
+
         System.out.println("Your input is: " + myString);
-        System.out.println("The reverse of this number is: ");
-        System.out.println("By loop: ");
-        //ReverseString.writeReverseString(myString);
-        System.out.println();
-        System.out.println("By Recursive: ");
-        ReverseString.writeReverseStringRecur(myString);
+        System.out.println("By loop: \n");
+        obj.writeReverseStringLoop(myString);
+        System.out.println(obj.writeReverseStringLoop(myString));
+        System.out.println("\nBy Recursive: ");
+        System.out.println(obj.writeReverseStringRecursive(myString));
     }
 }
