@@ -42,7 +42,7 @@ public class RansomNote {
         String ransomNote = "aa";
         String magazine = "aab";
         RansomNote rn = new RansomNote();
-        System.out.println("The answer is :" + rn.canConstructMap(ransomNote, magazine));
-        System.out.println("The answer is :" + rn.canConstructArray(ransomNote, magazine));
+        System.out.println("The answer is: " + rn.canConstructMap(ransomNote, magazine));
+        System.out.println("The answer is: " + rn.canConstructArray(ransomNote, magazine));
     }
 }
