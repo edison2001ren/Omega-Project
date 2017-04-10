@@ -19,7 +19,6 @@ public class HashTableDemo {
         ht.put("Key5", "Alexa");
         ht.put("Key2", "Amy");
 
-
         names = ht.keys();
         while(names.hasMoreElements()) {
             key = (String) names.nextElement();
