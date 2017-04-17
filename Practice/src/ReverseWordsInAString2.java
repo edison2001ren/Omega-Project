@@ -42,10 +42,30 @@ public class ReverseWordsInAString2 {
         return reverseString;
     }
 
+    public String reverseWords2(String s) {
+
+        Stack<String> st = new Stack<String>();
+        if(s == null || s == " ") {
+            return "";
+        }
+        else {
+            String[] stringArray = s.split(" ");
+            for(int i=0; i<stringArray.length; i++) {
+                st.push(stringArray[i]);
+            }
+        }
+        String returnString = "";
+        while(!st.empty()) {
+            returnString += (st.pop() + " ");
+        }
+        return returnString.trim();
+    }
+
     public static void main(String[] args) {
 
         ReverseWordsInAString2 obj = new ReverseWordsInAString2();
         String aString = "The sky is blue ";
         System.out.println("The reverse of this string is: " + obj.reverseWords(aString));
+        System.out.println("The reverse of this string is: " + obj.reverseWords2(aString));
     }
 }
