@@ -21,14 +21,13 @@ public class ReverseWordsInAString3 {
         while(!st.empty()) {
             returnString += (st.pop() + " ");
         }
-        return returnString;
-
+        return returnString.trim();
     }
 
     public static void main(String[] args) {
 
         ReverseWordsInAString3 obj = new ReverseWordsInAString3();
-        String aString = "The sky is blue ";
+        String aString = "Today is a good day";
         System.out.println("The reverse of this string is: " + obj.reverseWords(aString));
     }
 }
