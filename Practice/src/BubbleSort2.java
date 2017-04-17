@@ -16,7 +16,7 @@ public class BubbleSort2 {
     public int[] bubbleSortArray(int[] myArray) {
         while(startIndex < myArray.length - 1) {
             minIndex = startIndex;
-            for(int index = startIndex; index < myArray.length; index++) {
+            for(int index = startIndex + 1; index < myArray.length; index++) {
                 if(myArray[index] < myArray[minIndex]) {
                     interchange(index, minIndex, myArray);
                     numOfSwaps++;
