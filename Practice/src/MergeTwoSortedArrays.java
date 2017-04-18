@@ -1,62 +1,47 @@
 /**
- * Created by sunl on 6/10/16.
+ * Created by sunl on 1/17/17.
  */
-class MergeTwoSortedArrays {
-    /**
-     * @param A and B: sorted integer array A and B.
-     * @return: A new sorted integer array
-     */
-    public int[] mergeSortedArray(int[] A, int[] B) {
+public class MergeTwoSortedArrays {
 
-        int AIndex = 0;
-        int BIndex = 0;
 
-        if(A.length == 0 && B.length == 0) {
-            return (new int[] {});
-        }
-        else if(A.length == 0 && B.length != 0) {
-            return B;
-        }
-        else if(A.length != 0 && B.length == 0) {
-            return A;
-        }
-        else {
-            int[] C = new int[A.length + B.length];
-            int CIndex = 0;
-            while(AIndex < A.length || BIndex < B.length) {
-                if(A[AIndex] < B[BIndex]) {
-                    C[CIndex] = A[AIndex];
-                    AIndex++;
-                    CIndex++;
-                }
-                else if(A[AIndex] == B[BIndex]) {
-                    C[CIndex] = A[AIndex];
-                    AIndex++;
-                    CIndex++;
-                    C[CIndex] = B[BIndex];
-                    BIndex++;
-                    CIndex++;
-                }
-                else {
-                    C[CIndex] = B[AIndex];
-                    BIndex++;
-                    CIndex++;
-                }
+    public static int[] mergeList(int[] myList1, int[] myList2) {
+        int[] myMergedList = new int[myList1.length + myList2.length];
+        int mergedListIndex = 0;
+        int list1Index = 0;
+        int list2Index = 0;
+        while(mergedListIndex < myMergedList.length) {
+            if(list1Index < myList1.length && list2Index < myList2.length && myList1[list1Index] < myList2[list2Index]) {
+                myMergedList[mergedListIndex] = myList1[list1Index];
+                list1Index++;
+                mergedListIndex++;
             }
-
-            return C;
+            else if(list1Index < myList1.length && list2Index < myList2.length && myList1[list1Index] >= myList2[list2Index]) {
+                myMergedList[mergedListIndex] = myList2[list2Index];
+                list2Index++;
+                mergedListIndex++;
+            }
+            else if(list1Index == myList1.length) {
+                myMergedList[mergedListIndex] = myList2[list2Index];
+                list2Index++;
+                mergedListIndex++;
+            }
+            else if(list2Index == myList2.length) {
+                myMergedList[mergedListIndex] = myList1[list1Index];
+                list1Index++;
+                mergedListIndex++;
+            }
         }
-
-        // Write your code here
+        return myMergedList;
     }
 
-    public static void main(String args[]) {
-        int[] aArray = {1, 2 ,3, 4};
-        int[] bArray = {2, 4, 5, 6};
+    public static void main(String[] args) {
+        int[] list1 = {1,2,3,4,5,7,9,9,101};
+        int[] list2 = {2,2,5,7,7,9,202};
 
-        MergeTwoSortedArrays obj = new MergeTwoSortedArrays();
-        for(int k : obj.mergeSortedArray(aArray, bArray)) {
-            System.out.print(k + " ");
+        int[] merged_list = MergeTwoSortedArrays.mergeList(list1, list2);
+        System.out.println("The merged list is: ");
+        for(int i=0; i<merged_list.length;i++) {
+            System.out.print(merged_list[i] + " ");
         }
     }
 }

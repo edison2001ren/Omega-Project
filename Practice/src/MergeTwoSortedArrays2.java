@@ -1,44 +1,60 @@
-import java.util.TreeMap;
-import java.util.Collection;
-import java.util.Iterator;
-
 /**
  * Created by sunl on 6/10/16.
  */
-public class MergeTwoSortedArrays2 {
-
-    private int[] mergeSortedArray(int[] A, int[] B) {
+class MergeTwoSortedArrays2 {
+    /**
+     * @param A and B: sorted integer array A and B.
+     * @return: A new sorted integer array
+     */
+    public int[] mergeSortedArray(int[] A, int[] B) {
 
         int AIndex = 0;
         int BIndex = 0;
 
-        TreeMap treeMap = new TreeMap();
+        if(A.length == 0 && B.length == 0) {
+            return (new int[] {});
+        }
+        else if(A.length == 0 && B.length != 0) {
+            return B;
+        }
+        else if(A.length != 0 && B.length == 0) {
+            return A;
+        }
+        else {
+            int[] C = new int[A.length + B.length];
+            int CIndex = 0;
+            while(AIndex < A.length || BIndex < B.length) {
+                if(A[AIndex] < B[BIndex]) {
+                    C[CIndex] = A[AIndex];
+                    AIndex++;
+                    CIndex++;
+                }
+                else if(A[AIndex] == B[BIndex]) {
+                    C[CIndex] = A[AIndex];
+                    AIndex++;
+                    CIndex++;
+                    C[CIndex] = B[BIndex];
+                    BIndex++;
+                    CIndex++;
+                }
+                else {
+                    C[CIndex] = B[AIndex];
+                    BIndex++;
+                    CIndex++;
+                }
+            }
 
-        for(AIndex = 0; AIndex < A.length; AIndex++) {
-
+            return C;
         }
 
-        /*
-        get Collection of values contained in TreeMap using
-        Collection values()
-        */
-        Collection c = treeMap.values();
-
-        //obtain an Iterator for Collection
-        Iterator itr = c.iterator();
-
-        //iterate through TreeMap values iterator
-        while (itr.hasNext())
-            System.out.println(itr.next());
-
-        return null;
+        // Write your code here
     }
 
     public static void main(String args[]) {
         int[] aArray = {1, 2 ,3, 4};
         int[] bArray = {2, 4, 5, 6};
 
-        MergeTwoSortedArrays obj = new MergeTwoSortedArrays();
+        MergeTwoSortedArrays2 obj = new MergeTwoSortedArrays2();
         for(int k : obj.mergeSortedArray(aArray, bArray)) {
             System.out.print(k + " ");
         }
