@@ -43,7 +43,7 @@ public class TwoSum2 {
 
     public static void main(String[] args) {
         int[] inputArray = {8, 1 , 12, 1, 5, 1, 2, 10};
-        int targetNum = 99;
+        int targetNum = 9;
         TwoSum2 obj = new TwoSum2();
         if(obj.calcTwoSum(inputArray, targetNum)) {
             System.out.println("Found two numbers!!");
