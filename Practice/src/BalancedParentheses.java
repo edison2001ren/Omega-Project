@@ -1,39 +1,81 @@
+import java.util.HashMap;
+
 /**
- * Created by sunl on 3/29/16.
+ * Created by sunl on 4/5/16.
  */
 public class BalancedParentheses {
 
-    public static boolean validateParentheses(char[] parentheses) {
+    public boolean validateParentheses(String parentheses) {
 
-        if(parentheses == null || parentheses.length == 0) {
-            return false;
+        if(parentheses == null || parentheses == "") {
+            return true;
         }
-        int counter = 1;
-        char firstElement = parentheses[0];
-        if(firstElement == ')') {
+        char[] input = parentheses.toCharArray();
+        char firstElement = input[0];
+        if(firstElement == ')'|| firstElement == ']'|| firstElement == '}') {
             return false;
         }
         else {
-            for(int i=1; i<parentheses.length; i++) {
-                if(parentheses[i]==')') {
-                    counter--;
+            HashMap hm = new HashMap();
+            hm.put("(", new Integer(0));
+            hm.put("[", new Integer(0));
+            hm.put("{", new Integer(0));
+            int counter1 = (Integer) hm.get("(");
+            int counter2 = (Integer) hm.get("[");
+            int counter3 = (Integer) hm.get("{");
+            for(int i=0; i<parentheses.length(); i++) {
+                if(input[i]=='(') {
+                    hm.put("(", new Integer(counter1++));
+                    continue;
+                }
+                if(input[i]==')') {
+                    hm.put("(", new Integer(counter1--));
+                    if(counter1 >= 0) {
+                        continue;
+                    }
+                    else
+                        return false;
+                }
+                if(input[i]=='[') {
+                    hm.put("[", new Integer(counter2++));
+                    continue;
+                }
+                if(input[i]==']') {
+                    hm.put("[", new Integer(counter2--));
+                    if(counter2 >= 0) {
+                        continue;
+                    }
+                    else
+                        return false;
+                }
+                if(input[i]=='{') {
+                    hm.put("{", new Integer(counter3++));
+                    continue;
+                }
+                if(input[i]=='}') {
+                    hm.put("{", new Integer(counter3--));
+                    if(counter3 >= 0) {
+                        continue;
+                    }
+                    else
+                        return false;
                 }
                 else
-                    counter++;
-                if(counter<0) {
                     return false;
-                }
             }
-            if(counter!=0) {
+            if(counter1 % 2 == 0 && counter2 % 2 == 0 && counter3 % 2 == 0) {
+                return true;
+            }
+            else
                 return false;
-            }
-            return true;
         }
+
     }
 
     public static void main(String[] args) {
-        char[] input = {'(', ')', '('};
-        if(validateParentheses(input)) {
+        String parentheses = "(({)})";
+        BalancedParentheses bp = new BalancedParentheses();
+        if(bp.validateParentheses(parentheses)) {
             System.out.println("It is balanced!");
         }
         else

@@ -1,81 +1,33 @@
 import java.util.HashMap;
+import java.util.Stack;
 
 /**
- * Created by sunl on 4/5/16.
+ * Created by sunl on 4/6/16.
  */
 public class BalancedParentheses2 {
 
-    public boolean validateParentheses(String parentheses) {
+    private static final HashMap<Character, Character> hm = new HashMap<Character, Character>() {{
+        put('(', ')');
+        put('[', ']');
+        put('{', '}');
+    }};
 
-        if(parentheses == null || parentheses == "") {
-            return true;
-        }
-        char[] input = parentheses.toCharArray();
-        char firstElement = input[0];
-        if(firstElement == ')'|| firstElement == ']'|| firstElement == '}') {
-            return false;
-        }
-        else {
-            HashMap hm = new HashMap();
-            hm.put("(", new Integer(0));
-            hm.put("[", new Integer(0));
-            hm.put("{", new Integer(0));
-            int counter1 = (Integer) hm.get("(");
-            int counter2 = (Integer) hm.get("[");
-            int counter3 = (Integer) hm.get("{");
-            for(int i=0; i<parentheses.length(); i++) {
-                if(input[i]=='(') {
-                    hm.put("(", new Integer(counter1++));
-                    continue;
-                }
-                if(input[i]==')') {
-                    hm.put("(", new Integer(counter1--));
-                    if(counter1 >= 0) {
-                        continue;
-                    }
-                    else
-                        return false;
-                }
-                if(input[i]=='[') {
-                    hm.put("[", new Integer(counter2++));
-                    continue;
-                }
-                if(input[i]==']') {
-                    hm.put("[", new Integer(counter2--));
-                    if(counter2 >= 0) {
-                        continue;
-                    }
-                    else
-                        return false;
-                }
-                if(input[i]=='{') {
-                    hm.put("{", new Integer(counter3++));
-                    continue;
-                }
-                if(input[i]=='}') {
-                    hm.put("{", new Integer(counter3--));
-                    if(counter3 >= 0) {
-                        continue;
-                    }
-                    else
-                        return false;
-                }
-                else
-                    return false;
-            }
-            if(counter1 % 2 == 0 && counter2 % 2 == 0 && counter3 % 2 == 0) {
-                return true;
-            }
-            else
+    public boolean isValid(String s) {
+        Stack<Character> stack = new Stack<Character>();
+        for (char c : s.toCharArray()) {
+            if (hm.containsKey(c)) {
+                stack.push(c);
+            } else if (stack.isEmpty() || hm.get(stack.pop()) != c) {
                 return false;
+            }
         }
-
+        return stack.isEmpty();
     }
 
     public static void main(String[] args) {
-        String parentheses = "(({)})";
+        String parentheses = "{[}]";
         BalancedParentheses2 bp = new BalancedParentheses2();
-        if(bp.validateParentheses(parentheses)) {
+        if(bp.isValid(parentheses)) {
             System.out.println("It is balanced!");
         }
         else
