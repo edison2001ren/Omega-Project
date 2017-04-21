@@ -22,9 +22,7 @@ public class TwoSum2 {
         catch(IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
-        finally {
-            return false;
-        }
+        return false;
     }
 
     public int[] twoSumAnswer(int[] numbers, int target) {
@@ -43,14 +41,15 @@ public class TwoSum2 {
 
     public static void main(String[] args) {
         int[] inputArray = {8, 1 , 12, 1, 5, 1, 2, 10};
-        int targetNum = 9;
+        int targetNum = 21;
         TwoSum2 obj = new TwoSum2();
         if(obj.calcTwoSum(inputArray, targetNum)) {
             System.out.println("Found two numbers!!");
         }
         else
-            System.out.println("Not found two numbers!!\n");
+            System.out.println("Not found two numbers!!");
 
+        System.out.println("Index of these numbers are: ");
         for(int element : obj.twoSumAnswer(inputArray, targetNum)) {
             System.out.print(element + "\t");
         }
