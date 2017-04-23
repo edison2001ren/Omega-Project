@@ -21,7 +21,7 @@ public class TowerOfHanoi {
     }
 
     public static void main(String[] args) {
-        int num = 20;
+        int num = 10;
         char startPillar = 'A';
         char auxPillar = 'B';
         char endPillar = 'C';
