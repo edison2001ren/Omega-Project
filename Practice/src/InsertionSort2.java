@@ -17,14 +17,14 @@ public class InsertionSort2 {
                 }
                 unsorted[targetIndex] = temp;
             }
-            HelperFunctions.printArray(unsorted);
+            HelperMethod.printArray(unsorted);
         }
     }
 
     public static void main(String args[]) {
         int[] array = {6, 8, 1, 4, 5, 3, 7, 2};
         InsertionSort2 obj = new InsertionSort2();
-        HelperFunctions.printArray(array);
+        HelperMethod.printArray(array);
         obj.insertionSort(array);
     }
 }
