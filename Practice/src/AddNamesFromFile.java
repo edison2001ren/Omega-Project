@@ -25,7 +25,6 @@ public class AddNamesFromFile {
         while(mc.find()) {
             line = mc.group().trim().replace(", ", ",");
         }
-
         for(String name : line.split(",")) {
             hm.put(name, 1);
         }
@@ -61,8 +60,7 @@ public class AddNamesFromFile {
         }
         catch(IOException ex) {
             System.out.println(
-                    "Error writing to file '"
-                            + fileName + "'");
+                    "Error writing to file '" + fileName + "'");
             // Or we could just do this:
             // ex.printStackTrace();
         }
@@ -89,13 +87,11 @@ public class AddNamesFromFile {
         }
         catch(FileNotFoundException ex) {
             System.out.println(
-                    "Unable to open file '" +
-                            fileName + "'");
+                    "Unable to open file '" + fileName + "'");
         }
         catch(IOException ex) {
             System.out.println(
-                    "Error reading file '"
-                            + fileName + "'");
+                    "Error reading file '" + fileName + "'");
             // Or we could just do this:
             // ex.printStackTrace();
         }
