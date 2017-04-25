@@ -13,10 +13,8 @@ public class RemoveElementInArray {
                 A[i] = A[j];
                 i++;
             }
-
             j++;
         }
-
         return i;
     }
 

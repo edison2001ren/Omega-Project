@@ -1,9 +1,7 @@
-import java.util.HashMap;
-
 /**
  * Created by sunl on 4/17/16.
  */
-public class RemoveDuplicates1 {
+public class RemoveDuplicates {
 
     public int removeDuplicates(int[] nums) {
 
@@ -20,7 +18,7 @@ public class RemoveDuplicates1 {
 
     public static void main(String[] args) {
         int[] numList = {-14,-14,-14,-14,-13,-13,-12};
-        RemoveDuplicates1 rd = new RemoveDuplicates1();
+        RemoveDuplicates rd = new RemoveDuplicates();
         int length = rd.removeDuplicates(numList);
         System.out.println("The final length is: " + length);
     }
