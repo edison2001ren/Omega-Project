@@ -1,44 +1,26 @@
 /**
- * Created by sunl on 1/29/16.
+ * Created by sunl on 4/30/17.
  */
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Scanner;
-
 public class ReverseNumber {
 
-    public static void writeReverseNum(int n) {
-        List numberList = new ArrayList();
-        while(n/10 != 0) {
-            int digit = n%10;
-            numberList.add(digit);
-            n = n/10;
+    public int reverse(int x) {
+        long reverseNum = 0;
+        if( x == 0) {
+            return 0;
         }
-
-        if(n/10 == 0) {
-            numberList.add(n%10);
+        while(x != 0) {
+            reverseNum = reverseNum * 10 + x % 10;
+            x /= 10;
         }
-
-        Iterator iterator = numberList.iterator();
-        while(iterator.hasNext()) {
-            System.out.print(iterator.next());
+        if(reverseNum > Math.pow(2, 31) || reverseNum < -(Math.pow(2, 31))) {
+            return 0;
         }
+        return (int)reverseNum;
     }
 
     public static void main(String[] args) {
-
-        System.out.println("Please enter a integer number: ");
-        Scanner scanner = new Scanner(System.in);
-
-        int number = scanner.nextInt();
-
-        System.out.println("Your input is: " + number);
-        System.out.println("The reverse of this number is: ");
-        System.out.println("By loop: ");
-        ReverseNumber.writeReverseNum(number);
-        System.out.println();
-        System.out.println("By Recursive: ");
-        ReverseNumber2.writeReverseNumRecur(number);
+        int a = 0;
+        ReverseNumber obj = new ReverseNumber();
+        System.out.println("The reverse of " + a + " is: " + obj.reverse(a));
     }
 }
