@@ -1,7 +1,7 @@
 /**
  * Created by sunl on 4/18/17.
  */
-public class BestTimeToBuyAndSellStock3 {
+public class BestTimeToBuyAndSellStockIII {
 
     public int maxProfit(int[] prices) {
 
@@ -35,7 +35,7 @@ public class BestTimeToBuyAndSellStock3 {
 
     public static void main(String[] args) {
         int[] stock_prices = {-3, 0, 4, -1, 6, 0, 2, 7};
-        BestTimeToBuyAndSellStock3 obj = new BestTimeToBuyAndSellStock3();
+        BestTimeToBuyAndSellStockIII obj = new BestTimeToBuyAndSellStockIII();
         System.out.println("The maximum profit we can make is: " + obj.maxProfit(stock_prices));
         System.out.println("The maximum profit we can make is: " + obj.maxProfit2(stock_prices));
     }
