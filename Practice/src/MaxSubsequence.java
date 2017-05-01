@@ -17,7 +17,7 @@ public class MaxSubsequence {
 
     public static void main(String[] args) {
 
-        int[] array = {3, 2, 3, 1, 2};
+        int[] array = {-2, 1};
         System.out.println("The maximum profit is: " + MaxSubsequence.calcMaxSubsequence(array));
     }
 }
