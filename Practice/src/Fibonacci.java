@@ -16,11 +16,10 @@ public class Fibonacci {
             first = temp;
         }
         return second;
-        // write your code here
     }
 
     public static void main(String args[]) {
-        int number = 47;
+        int number = 2;
         Fibonacci obj = new Fibonacci();
         System.out.println("The Fibonacci number is: " + obj.fibonacci(number));
     }
