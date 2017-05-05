@@ -5,8 +5,8 @@ public class Anagrams3 {
 
     public boolean anagram3(String s, String t) {
 
-        char[] charArrayS = s.toLowerCase().toCharArray();
-        char[] charArrayT = t.toLowerCase().toCharArray();
+        char[] charArrayS = s.replace(" ", "").toLowerCase().toCharArray();
+        char[] charArrayT = t.replace(" ", "").toLowerCase().toCharArray();
         int[] freq = new int[26];
 
         for(char ch : charArrayS) {
@@ -32,8 +32,8 @@ public class Anagrams3 {
         String aString = "happy new year";
         String bString = "n ahwryeypp ea";
 
-        Anagrams2 ana = new Anagrams2();
-        if(ana.anagrams2(aString, bString)) {
+        Anagrams3 ana = new Anagrams3();
+        if(ana.anagram3(aString, bString)) {
             System.out.println(aString + ", " + bString + " are Anagrams!");
         }
         else

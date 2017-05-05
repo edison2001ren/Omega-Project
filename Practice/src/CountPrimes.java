@@ -19,7 +19,7 @@ public class CountPrimes {
     }
 
     public static void main(String[] arg) {
-        int num = 10000;
+        int num = 10000000;
         CountPrimes obj = new CountPrimes();
         System.out.println(num + " has " + obj.countPrimes(num) + " primes!");
     }
