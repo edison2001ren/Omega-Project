@@ -17,7 +17,7 @@ public class RemoveDuplicates {
     }
 
     public static void main(String[] args) {
-        int[] numList = {-14,-14,-14,-14,-13,-13,-12};
+        int[] numList = {1,1,2};
         RemoveDuplicates rd = new RemoveDuplicates();
         int length = rd.removeDuplicates(numList);
         System.out.println("The final length is: " + length);
