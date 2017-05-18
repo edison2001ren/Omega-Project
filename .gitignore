@@ -1,5 +1,5 @@
 *.class
 *.txt
 *.xml
-.idea
+.idea/
 Practice/out/
