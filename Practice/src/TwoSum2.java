@@ -1,4 +1,5 @@
 import java.util.HashMap;
+import java.util.Hashtable;
 
 /**
  * Created by sunl on 4/6/16.
@@ -21,6 +22,23 @@ public class TwoSum2 {
         }
         catch(IllegalArgumentException e) {
             System.out.println(e.getMessage());
+        }
+        return false;
+    }
+
+    public boolean CalcTwoSum2(int[] myArray, int sum) {
+        Hashtable<Integer, Integer> ht = new Hashtable<Integer, Integer>();
+        int index = 0;
+        for(int num: myArray) {
+            if(!ht.containsKey(sum-num)) {
+                if(!ht.containsKey(num)) {
+                    ht.put(num, index);
+                    System.out.println(index + ": " + num);
+                    index++;
+                }
+            }
+            else
+                return true;
         }
         return false;
     }
