@@ -48,6 +48,6 @@ public class HappyNumber {
         if (object.isHappy(number))
             System.out.println("The number is a happy number!!!");
         else
-            System.out.println("The number is not a happy number!!!");
+            System.out.println("The number is NOT a happy number!!!");
     }
 }
