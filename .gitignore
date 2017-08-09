@@ -1,6 +1,6 @@
-*.class
 *.txt
 *.xml
 .idea/
 Practice/out/
 /Practice/out
+*.iml
